@@ -9,7 +9,7 @@
         <groupId>uk.gov.dvla.oep</groupId>
         <artifactId>service-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath/>
+        <relativePath>../service-parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>play-framework-service-parent</artifactId>
