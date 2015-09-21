@@ -1,0 +1,1 @@
+/sbin/userdel ${project.artifactId} >/dev/null 2>&1

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+    <short>${project.artifactId}</short>
+    <description>${project.description}</description>
+    <port protocol="${rpmFirewalldProtocol}" port="${rpmFirewalldPort}"/>
+</service>
