@@ -1,7 +1,7 @@
 project-parent
 ========
 
-Project provides Maven configuration which covers:
+This `pom.xml` provides Maven configuration which covers:
 - common test dependencies declaration
 - configuration for compile and test plugins
 - configuration for reporting plugins
@@ -10,7 +10,7 @@ Project provides Maven configuration which covers:
 ## Requirements
 
  * Java JDK 1.8+
- * Maven 3
+ * Maven 3+
 
 ## Build
 

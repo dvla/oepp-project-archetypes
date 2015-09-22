@@ -1,14 +1,16 @@
 service-parent
 ========
 
-Project provides Maven configuration which covers:
-- configuration for JAR building plugins
+This `pom.xml` provides Maven configuration which covers:
+- configuration for JAR building and dependency copying plugins
 - release profile for building RPM packages
+
+Because this module is very generic by design, none of the plugins are enabled by default. Modules which use this `pom.xml` should enable them when needed.
 
 ## Requirements
 
  * Java JDK 1.8+
- * Maven 3
+ * Maven 3+
 
 ## Build
 
@@ -27,5 +29,5 @@ Project provides release profile which packages services into deployable RPM pac
 To build RPM package please execute following command:
 
 ```bash
-  mvn clean package -P release -Dgpg.keyPassphrase=[GPG key passphrase]
+  mvn clean package -P release
 ```
