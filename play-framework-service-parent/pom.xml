@@ -211,14 +211,27 @@
                                     </mapping>
                                     <!-- conf mapping -->
                                     <mapping>
-                                        <directory>/etc/opt/${project.artifactId}</directory>
+                                        <directory>/opt/${project.artifactId}/conf</directory>
                                         <directoryIncluded>false</directoryIncluded>
                                         <sources>
                                             <source>
                                                 <location>${project.build.directory}/universal/stage/conf/</location>
                                                 <excludes>
+                                                    <exclude>application.conf</exclude>
                                                     <exclude>environment.conf</exclude>
                                                 </excludes>
+                                            </source>
+                                        </sources>
+                                        <username>${project.artifactId}</username>
+                                        <groupname>${project.artifactId}</groupname>
+                                        <filemode>640</filemode>
+                                    </mapping>
+                                    <mapping>
+                                        <directory>/etc/opt/${project.artifactId}</directory>
+                                        <directoryIncluded>false</directoryIncluded>
+                                        <sources>
+                                            <source>
+                                                <location>${project.build.directory}/universal/stage/conf/application.conf</location>
                                             </source>
                                         </sources>
                                         <username>${project.artifactId}</username>
