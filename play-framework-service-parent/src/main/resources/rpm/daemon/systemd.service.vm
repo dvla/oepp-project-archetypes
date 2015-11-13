@@ -5,6 +5,9 @@ After=network.target remote-fs.target nss-lookup.target
 [Service]
 EnvironmentFile=/etc/sysconfig/${project.artifactId}
 User=${project.artifactId}
+ExecStartPre=/bin/mkdir -p /var/run/${project.artifactId}
+ExecStartPre=/bin/chown ${project.artifactId}:${project.artifactId} /var/run/${project.artifactId}
+ExecStartPre=/bin/chmod 755 /var/run/${project.artifactId}
 ExecStart=${rpmDaemonExec}
 PermissionsStartOnly=true
 

@@ -16,7 +16,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <rpm.daemon.exec>/opt/${project.artifactId}/bin/${project.artifactId} -Dconfig.file=/etc/opt/${project.artifactId}/application.conf</rpm.daemon.exec>
+        <rpm.daemon.exec>/opt/${project.artifactId}/bin/${project.artifactId} -Dconfig.file=/etc/opt/${project.artifactId}/application.conf -Dpidfile.path=/var/run/${project.artifactId}/${project.artifactId}.pid</rpm.daemon.exec>
         <rpm.firewalld.protocol>tcp</rpm.firewalld.protocol>
         <rpm.firewalld.port>${play-framework-service.port}</rpm.firewalld.port>
 
@@ -89,6 +89,40 @@
         </testResources>
 
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-remote-resources-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>remote-resources-bundle</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                        <inherited>false</inherited>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.5.5</version>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/main/resources/assembly/resources.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
@@ -172,6 +206,20 @@
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-remote-resources-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <id>remote-resources-process</id>
+                                    <goals>
+                                        <goal>process</goal>
+                                    </goals>
+                                    <configuration>
+                                        <resourceBundles>
+                                            <resourceBundle>uk.gov.dvla.oep:play-framework-service-parent:1.0-SNAPSHOT:jar:resources</resourceBundle>
+                                            <resourceBundle>uk.gov.dvla.oep:service-parent:1.0-SNAPSHOT:jar:resources</resourceBundle>
+                                        </resourceBundles>
+                                    </configuration>
+                                </execution>
+                            </executions>
                         </plugin>
                         <plugin>
                             <groupId>org.codehaus.mojo</groupId>

@@ -1,0 +1,17 @@
+<assembly>
+    <id>resources</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <outputDirectory />
+        </fileSet>
+        <fileSet>
+            <directory>${project.build.outputDirectory}/META-INF</directory>
+            <outputDirectory>META-INF</outputDirectory>
+        </fileSet>
+    </fileSets>
+</assembly>
