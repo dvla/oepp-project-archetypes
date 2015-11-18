@@ -13,6 +13,9 @@ This `pom.xml` file:
  * Java JDK 1.8+
  * Maven 3+
 
+## Configure
+You need to ensure that the `dropwizard-service.port` property is defined in your maven settings. Please refer the `README.md` file of the parent project for how to do this.
+
 ## Build
 
 To build this project execute the following command:
