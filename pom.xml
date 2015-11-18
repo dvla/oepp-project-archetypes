@@ -48,4 +48,42 @@
         <module>play-framework-service-parent</module>
     </modules>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>1.4.1</version>
+                <executions>
+                    <execution>
+                        <id>enforce-property</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireProperty>
+                                    <property>nexus.url</property>
+                                    <regex>http[s]?://(([^/:\.[:space:]]+(\.[^/:\.[:space:]]+)*)|([0-9](\.[0-9]{3})))(:[0-9]+)?((/[^?#[:space:]]+)(\?[^#[:space:]]+)?(\#.+)?)?</regex>
+                                    <regexMessage>The nexus url property must be a valid url</regexMessage>
+                                </requireProperty>
+                                <requireProperty>
+                                    <property>dropwizard-service.port</property>
+                                    <regex>\d{1,5}</regex>
+                                    <regexMessage>The dropwizard-service.port must be numeric and between 1 and 5 digits</regexMessage>
+                                </requireProperty>
+                                <requireProperty>
+                                    <property>play-framework-service.port</property>
+                                    <regex>\d{1,5}</regex>
+                                    <regexMessage>The play-framework-service.port must be numeric and between 1 and 5 digits</regexMessage>
+                                </requireProperty>
+                            </rules>
+                            <fail>true</fail>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
