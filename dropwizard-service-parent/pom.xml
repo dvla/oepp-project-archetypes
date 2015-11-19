@@ -21,9 +21,9 @@
         <rpm.firewalld.protocol>tcp</rpm.firewalld.protocol>
         <rpm.firewalld.port>${dropwizard-service.port}</rpm.firewalld.port>
 
-        <dropwizard.version>0.8.4</dropwizard.version>
-        <dropwizard-swagger.version>0.7.1</dropwizard-swagger.version>
-        <swagger.version>1.5.3</swagger.version>
+        <dropwizard.version>0.9.1</dropwizard.version>
+        <dropwizard-swagger.version>0.9.1-1</dropwizard-swagger.version>
+        <swagger.version>1.5.4</swagger.version>
     </properties>
 
     <dependencies>
