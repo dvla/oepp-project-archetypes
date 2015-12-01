@@ -1,0 +1,2 @@
+systemctl stop customer-portal.service
+systemctl disable customer-portal.service
