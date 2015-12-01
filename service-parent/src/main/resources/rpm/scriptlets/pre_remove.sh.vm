@@ -1,2 +1,2 @@
-systemctl stop customer-portal.service
-systemctl disable customer-portal.service
+systemctl stop ${project.artifactId}.service
+systemctl disable ${project.artifactId}.service
