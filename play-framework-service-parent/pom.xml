@@ -20,7 +20,7 @@
         <rpm.firewalld.protocol>tcp</rpm.firewalld.protocol>
         <rpm.firewalld.port>${play-framework-service.port}</rpm.firewalld.port>
 
-        <play.version>2.4.3</play.version>
+        <play.version>2.4.4</play.version>
     </properties>
 
     <dependencies>
