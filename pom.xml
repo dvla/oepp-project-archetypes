@@ -71,12 +71,12 @@
                                 <requireProperty>
                                     <property>source-code-repository.url</property>
                                     <regex>(ssh|http[s]?)://(([^/:\.[:space:]]+(\.[^/:\.[:space:]]+)*)|([0-9](\.[0-9]{3})))(:[0-9]+)?((/[^?#[:space:]]+)(\?[^#[:space:]]+)?(\#.+)?)?</regex>
-                                    <regexMessage>The nexus url property must be a valid url</regexMessage>
+                                    <regexMessage>The source-code-repository.url property must be a valid url</regexMessage>
                                 </requireProperty>
                                 <requireProperty>
                                     <property>binary-repository-manager.url</property>
                                     <regex>http[s]?://(([^/:\.[:space:]]+(\.[^/:\.[:space:]]+)*)|([0-9](\.[0-9]{3})))(:[0-9]+)?((/[^?#[:space:]]+)(\?[^#[:space:]]+)?(\#.+)?)?</regex>
-                                    <regexMessage>The nexus url property must be a valid url</regexMessage>
+                                    <regexMessage>The binary-repository-manager.url property must be a valid url</regexMessage>
                                 </requireProperty>
                                 <requireProperty>
                                     <property>dropwizard-service.port</property>
