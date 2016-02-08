@@ -28,11 +28,12 @@ http://maven.apache.org/xsd/settings-1.0.0.xsd"
 
     <profiles>
         <profile>
-            <id>oepp-inject-properties</id>
+            <id>oepp-properties</id>
             <properties>
-                <nexus.url>http://dummy_nexus_host:dummy_nexus_port</nexus.url>
-                <dropwizard-service.port>dummy_dropwizard_port</dropwizard-service.port>
-                <play-framework-service.port>dummy_play_framework_port</play-framework-service.port>
+                <source-code-repository.url>your source code repository url (e.g. https://localhost/git)</source-code-repository.url>
+                <binary-repository-manager.url>your binary repository manager url (e.g. https:localhost/nexus)</binary-repository-manager.url>
+                <dropwizard-service.port>default dropwizard service port (e.g. 8080))</dropwizard-service.port>
+                <play-framework-service.port>default play framework port (e.g. 9000)</play-framework-service.port>
             </properties>
         </profile>
     </profiles>

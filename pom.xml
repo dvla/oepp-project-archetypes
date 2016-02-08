@@ -9,6 +9,12 @@
     <artifactId>project-archetypes</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <scm>
+        <developerConnection>
+            scm:git:${source-code-repository.url}/oepp/${project.artifactId}.git
+        </developerConnection>
+    </scm>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -16,14 +22,14 @@
     <repositories>
         <repository>
             <id>nexus-releases</id>
-            <url>${nexus.url}/nexus/content/repositories/releases</url>
+            <url>${binary-repository-manager.url}/nexus/content/repositories/releases</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
         </repository>
         <repository>
             <id>nexus-snapshots</id>
-            <url>${nexus.url}/nexus/content/repositories/snapshots</url>
+            <url>${binary-repository-manager.url}/nexus/content/repositories/snapshots</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
@@ -33,11 +39,11 @@
     <distributionManagement>
         <repository>
             <id>nexus</id>
-            <url>${nexus.url}/nexus/content/repositories/releases</url>
+            <url>${binary-repository-manager.url}/nexus/content/repositories/releases</url>
         </repository>
         <snapshotRepository>
             <id>nexus</id>
-            <url>${nexus.url}/nexus/content/repositories/snapshots</url>
+            <url>${binary-repository-manager.url}/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -63,7 +69,12 @@
                         <configuration>
                             <rules>
                                 <requireProperty>
-                                    <property>nexus.url</property>
+                                    <property>source-code-repository.url</property>
+                                    <regex>(ssh|http[s]?)://(([^/:\.[:space:]]+(\.[^/:\.[:space:]]+)*)|([0-9](\.[0-9]{3})))(:[0-9]+)?((/[^?#[:space:]]+)(\?[^#[:space:]]+)?(\#.+)?)?</regex>
+                                    <regexMessage>The nexus url property must be a valid url</regexMessage>
+                                </requireProperty>
+                                <requireProperty>
+                                    <property>binary-repository-manager.url</property>
                                     <regex>http[s]?://(([^/:\.[:space:]]+(\.[^/:\.[:space:]]+)*)|([0-9](\.[0-9]{3})))(:[0-9]+)?((/[^?#[:space:]]+)(\?[^#[:space:]]+)?(\#.+)?)?</regex>
                                     <regexMessage>The nexus url property must be a valid url</regexMessage>
                                 </requireProperty>
@@ -82,6 +93,14 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                </configuration>
             </plugin>
         </plugins>
     </build>
