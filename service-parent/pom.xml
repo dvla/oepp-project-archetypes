@@ -254,10 +254,10 @@
                                 </preinstallScriptlet>
                                 <postinstallScriptlet>
                                     <scriptFile>${project.build.directory}/maven-shared-archive-resources/rpm/scriptlets/post_install.sh</scriptFile>
-			    	</postinstallScriptlet>
-				<preremoveScriptlet>
-				</preremoveScriptlet>
-				    <scriptFile>${project.build.directory}/maven-shared-archive-resources/rpm/scriptlets/pre_remove.sh</scriptFile>
+                                </postinstallScriptlet>
+                                <preremoveScriptlet>
+                                    <scriptFile>${project.build.directory}/maven-shared-archive-resources/rpm/scriptlets/pre_remove.sh</scriptFile>
+                                </preremoveScriptlet>
                                 <postremoveScriptlet>
                                     <scriptFile>${project.build.directory}/maven-shared-archive-resources/rpm/scriptlets/post_remove.sh</scriptFile>
                                 </postremoveScriptlet>
