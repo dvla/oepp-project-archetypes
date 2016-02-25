@@ -3,3 +3,4 @@ if [ $1 -gt 1 ]; then
 else
     systemctl enable ${project.artifactId}.service
 fi
+/bin/systemctl --system daemon-reload &> /dev/null || :

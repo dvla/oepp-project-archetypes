@@ -1,3 +1,4 @@
 if [ $1 -eq 0 ] ; then
   /sbin/userdel ${project.artifactId} >/dev/null 2>&1
 fi
+/bin/systemctl --system daemon-reload &> /dev/null || :
