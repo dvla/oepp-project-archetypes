@@ -13,8 +13,12 @@
     <artifactId>service-parent</artifactId>
 
     <properties>
+        <rpm.resources-jar.version>${parent.version}</rpm.resources-jar.version>
+
         <rpm.sysconfig.fileLocation>${project.build.directory}/maven-shared-archive-resources/rpm/daemon/sysconfig</rpm.sysconfig.fileLocation>
         <rpm.firewalld.configFileLocation>${project.build.directory}/maven-shared-archive-resources/rpm/daemon/firewalld.xml</rpm.firewalld.configFileLocation>
+        <rpm.firewalld.protocol>none</rpm.firewalld.protocol>
+        <rpm.firewalld.port>none</rpm.firewalld.port>
         <rpm.systemd.unitFileLocation>${project.build.directory}/maven-shared-archive-resources/rpm/daemon/systemd.service</rpm.systemd.unitFileLocation>
     </properties>
 
@@ -113,7 +117,7 @@
                                     </goals>
                                     <configuration>
                                         <resourceBundles>
-                                            <resourceBundle>uk.gov.dvla.oep:service-parent:1.0-SNAPSHOT:jar:resources</resourceBundle>
+                                            <resourceBundle>uk.gov.dvla.oep:service-parent:${rpm.resources-jar.version}:jar:resources</resourceBundle>
                                         </resourceBundles>
                                         <attachToMain>false</attachToMain>
                                         <attachToTest>false</attachToTest>

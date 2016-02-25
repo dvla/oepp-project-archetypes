@@ -2,5 +2,7 @@
 <service>
     <short>${project.artifactId}</short>
     <description>${project.description}</description>
+#if (${rpmFirewalldProtocol} != "none" && ${rpmFirewalldPort} != "none")
     <port protocol="${rpmFirewalldProtocol}" port="${rpmFirewalldPort}"/>
+#end
 </service>
