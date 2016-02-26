@@ -1,2 +1,2 @@
-systemctl stop ${project.artifactId}.service
-systemctl disable ${project.artifactId}.service
+/bin/systemctl stop ${project.artifactId}.service
+/bin/systemctl disable ${project.artifactId}.service

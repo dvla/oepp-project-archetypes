@@ -1,6 +1,6 @@
 if [ $1 -gt 1 ]; then
-    systemctl try-restart ${project.artifactId}.service
+    /bin/systemctl try-restart ${project.artifactId}.service
 else
-    systemctl enable ${project.artifactId}.service
+    /bin/systemctl enable ${project.artifactId}.service
 fi
 /bin/systemctl --system daemon-reload &> /dev/null || :
