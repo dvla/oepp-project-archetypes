@@ -211,8 +211,8 @@
                                     </goals>
                                     <configuration>
                                         <resourceBundles>
-                                            <resourceBundle>uk.gov.dvla.oep:play-framework-service-parent:1.0-SNAPSHOT:jar:resources</resourceBundle>
-                                            <resourceBundle>uk.gov.dvla.oep:service-parent:1.0-SNAPSHOT:jar:resources</resourceBundle>
+                                            <resourceBundle>uk.gov.dvla.oep:play-framework-service-parent:${rpm.resources-jar.version}:jar:resources</resourceBundle>
+                                            <resourceBundle>uk.gov.dvla.oep:service-parent:${rpm.resources-jar.version}:jar:resources</resourceBundle>
                                         </resourceBundles>
                                     </configuration>
                                 </execution>
