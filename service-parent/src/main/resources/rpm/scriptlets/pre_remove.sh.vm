@@ -1,2 +1,5 @@
-/bin/systemctl stop ${project.artifactId}.service
-/bin/systemctl disable ${project.artifactId}.service
+if [ $1 -eq 0 ] ; then
+    # stop and disable service when service is being uninstalled (skip on upgrade)
+    /bin/systemctl stop ${project.artifactId}.service || :
+    /bin/systemctl disable ${project.artifactId}.service || :
+fi
