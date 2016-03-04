@@ -1,6 +1,8 @@
-/bin/systemctl --system daemon-reload &> /dev/null || :
-if [ $1 -gt 1 ]; then
-    /bin/systemctl try-restart ${project.artifactId}.service
+if [ $1 -eq 1 ]; then
+    # enable service when service is being installed (skip on upgrade)
+    /bin/systemctl enable ${project.artifactId}.service || :
 else
-    /bin/systemctl enable ${project.artifactId}.service
+    # reload systemd configuration and try to restart service when service is being upgraded (skip on install)
+    /bin/systemctl daemon-reload || :
+    /bin/systemctl try-restart ${project.artifactId}.service || :
 fi

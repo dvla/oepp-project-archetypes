@@ -1,3 +1,4 @@
 if [ $1 -eq 1 ] ; then
-    /bin/id ${project.artifactId} > /dev/null 2>&1 || /sbin/useradd -s /sbin/nologin -K MAIL_DIR=/dev/null -M -r ${project.artifactId}
+    # try to add user when service is being installed (skip on upgrade)
+    /bin/id ${project.artifactId} > /dev/null 2>&1 || /sbin/useradd -s /sbin/nologin -K MAIL_DIR=/dev/null -M -r ${project.artifactId} || :
 fi
