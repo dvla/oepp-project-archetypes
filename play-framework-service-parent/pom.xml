@@ -13,7 +13,7 @@
     <artifactId>play-framework-service-parent</artifactId>
 
     <properties>
-        <rpm.daemon.exec>/opt/${project.artifactId}/bin/${project.artifactId} -Dconfig.file=/etc/opt/${project.artifactId}/application.conf -Dpidfile.path=/var/run/${project.artifactId}/${project.artifactId}.pid</rpm.daemon.exec>
+        <rpm.daemon.exec>/opt/${project.artifactId}/bin/${project.artifactId} -Dconfig.file=/etc/opt/${project.artifactId}/application.conf -Dlogger.file=/etc/opt/${project.artifactId}/logback.xml -Dpidfile.path=/dev/null</rpm.daemon.exec>
         <rpm.firewalld.protocol>tcp</rpm.firewalld.protocol>
         <rpm.firewalld.port>${play-framework-service.port}</rpm.firewalld.port>
 
@@ -264,6 +264,7 @@
                                                 <excludes>
                                                     <exclude>application.conf</exclude>
                                                     <exclude>environment.conf</exclude>
+                                                    <exclude>logback.xml</exclude>
                                                 </excludes>
                                             </source>
                                         </sources>
@@ -290,6 +291,19 @@
                                         <sources>
                                             <source>
                                                 <location>${project.build.directory}/universal/stage/conf/environment.conf</location>
+                                            </source>
+                                        </sources>
+                                        <username>${project.artifactId}</username>
+                                        <groupname>${project.artifactId}</groupname>
+                                        <filemode>640</filemode>
+                                    </mapping>
+                                    <mapping>
+                                        <directory>/etc/opt/${project.artifactId}</directory>
+                                        <directoryIncluded>false</directoryIncluded>
+                                        <configuration>noreplace</configuration>
+                                        <sources>
+                                            <source>
+                                                <location>${project.build.directory}/universal/stage/conf/logback.xml</location>
                                             </source>
                                         </sources>
                                         <username>${project.artifactId}</username>
